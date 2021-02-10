@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Laravel Image CURD</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+</head>
+<body>
+	<div class="jumbotron">
+	<form method="POST" action="{{route('images.store')}}" enctype="multipart/form-data">
+		@csrf
+	  <div class="form-group">
+		<label for="name">Name</label>
+		<input type="text" name="name" placeholder="Enter name" class="form-control">
+	  </div>
+	  <div class="form-group">
+		<label for="email">Email</label>
+		<input type="email" name="email" placeholder="Enter email" class="form-control">
+	  </div>
+	  <div class="form-group">
+		<label for="designation">Designation</label>
+		<input type="text" name="designation" placeholder="Enter designation" class="form-control">
+	  </div>
+	  <div class="form-group">
+		<label for="image">Image</label>
+		<input type="file" name="image" class="form-control">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	</div>
+</body>
+</html>
