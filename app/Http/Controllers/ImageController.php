@@ -14,7 +14,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        return view('employee');
+		$data['employees'] = Employee::all();
+        return view('index', $data);
     }
 
     /**
@@ -24,7 +25,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        return view('employee');
     }
 
     /**
@@ -75,7 +76,8 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['editData'] = Employee::find($id);
+        return view('edit', $data);
     }
 
     /**

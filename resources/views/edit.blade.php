@@ -13,26 +13,33 @@
 			<div class="jumbotron">
 				<h5>Image CURD</h5>
 				<hr/>
-				<form method="POST" action="{{route('images.store')}}" enctype="multipart/form-data">
+				<form method="PUT" action="{{route('images.update', $editData->id)}}" enctype="multipart/form-data">
 					@csrf
 				  <div class="form-group">
 					<label for="name">Name</label>
-					<input type="text" name="name" placeholder="Enter name" class="form-control">
+					<input type="text" name="name" placeholder="{{$editData->name}}" class="form-control">
 				  </div>
 				  <div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" placeholder="Enter email" class="form-control">
+					<input type="email" name="email" placeholder="{{$editData->email}}" class="form-control">
 				  </div>
 				  <div class="form-group">
 					<label for="designation">Designation</label>
-					<input type="text" name="designation" placeholder="Enter designation" class="form-control">
+					<input type="text" name="designation" placeholder="{{$editData->designation}}" class="form-control">
 				  </div>
 				  <div class="form-group">
 					<label for="image">Image</label>
-					<input type="file" name="image" class="form-control">
+					<div class="row">
+						<div class="col-md-4">
+							<input type="file" name="image" class="form-control">
+						</div>
+						<div class="col-md-8">
+							<img src="{{ asset('uploads/'.$editData->image) }}" alt="" width="50" />
+						</div>
+					</div>
 				  </div>
-				  <button type="submit" class="btn btn-success btn-sm">Submit</button>
-				  <a href="{{url('/')}}" class="btn btn-info btn-sm">Back</a>
+				  <button type="submit" class="btn btn-success btn-sm">Update</button>
+				  <a href="{{route('images.index')}}" class="btn btn-info btn-sm">Back</a>
 				</form>
 			</div>		
 		</div>
