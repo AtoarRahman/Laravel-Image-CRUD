@@ -11,7 +11,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h5>Image Create</h5>
+				<h5>Single-Image Create</h5>
 				<hr/>
 				<form method="POST" action="{{route('images.store')}}" enctype="multipart/form-data">
 					@csrf

@@ -15,7 +15,7 @@
 <div class="container mt-3">
 	<div class="row">
 		<div class="col-md-12">
-			<h5 class="float-left">Image CURD</h5>
+			<h5 class="float-left">Single-Image List</h5>
 			<a class="btn btn-info float-right" href="{{url('/')}}">Back</a>
 			<a class="btn btn-success float-right mr-2" href="{{route('images.create')}}">Add Image</a>
 		</div>
