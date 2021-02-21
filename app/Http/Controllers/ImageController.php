@@ -15,7 +15,7 @@ class ImageController extends Controller
     public function index()
     {
 		$data['employees'] = Employee::all();
-        return view('employee.index', $data);
+        return view('singleImage.index', $data);
     }
 
 
@@ -26,7 +26,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('employee.create');
+        return view('singleImage.create');
     }
 
     /**
@@ -84,7 +84,7 @@ class ImageController extends Controller
     public function edit($id)
     {
         $data['editData'] = Employee::find($id);
-        return view('employee.edit', $data);
+        return view('singleImage.edit', $data);
     }
 
     /**

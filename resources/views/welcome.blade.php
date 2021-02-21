@@ -10,7 +10,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        </style>
+        <style type="text/css">
+		.sitebar{background: #343a40;bottom: 0;float: none; height: 100vh;left: 0;position: fixed;top: 0;padding: 30px; z-index: 2; padding-top:60px;}
+		.bodycontent{background: #d6d6d6;float: none; width: 100%; height:60px; right: 0;position: fixed;top: 0; z-index: 1;}
+		</style>
+		
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -28,13 +32,17 @@
                 </div>
             @endif
 
-<div class="container mt-3">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron">
-				<a class="btn btn-info" href="{{route('images.index')}}">Image List</a>
-				<a class="btn btn-success" href="{{route('students.index')}}">Student List</a>
+		<div class="col-md-3 p-0">
+			<div class="sitebar">
+				<a class="btn btn-info mb-2" href="{{route('images.index')}}">Image List</a><br/>
+				<a class="btn btn-primary mb-2" href="{{route('multiImages.index')}}">Multi Image List</a><br/>
+				<a class="btn btn-success mb-2" href="{{route('students.index')}}">Student List</a>
 			</div>
+		</div>
+		<div class="col-md-9 p-0">
+		<div class="bodycontent"></div>
 		</div>
 		
 	</div>

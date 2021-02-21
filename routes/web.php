@@ -20,4 +20,5 @@ Route::get('/', function () {
 Route::get('/getStudentData', 'AjaxController@getStudentData');
 
 Route::resource('images', 'ImageController');
+Route::resource('multiImages', 'MultiImageController');
 Route::resource('students', 'StudentController');
