@@ -32,17 +32,7 @@
 				</tr>
 			  </thead>
 			  <tbody id="table_data">
-			  {{-- @foreach($students as $data)
-				<tr>
-				    <td>{{ $loop->iteration }}</td>
-					<td>{{ $data->name }}</td>
-					<td>{{ $data->email }}</td>
-					<td>{{ $data->department }}</td>
-					
-					<td><img src="{{ asset('uploads/'.$data->image) }}" alt="" width="25" /></td>
-					<td><a href="{{ route('students.edit', $data->id) }}" class="btn btn-sm btn-success">Edit</a></td>
-				</tr>
-				@endforeach		--}}		
+		
 			  </tbody>
 			</table>
 		</div>
