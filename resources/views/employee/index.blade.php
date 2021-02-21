@@ -9,7 +9,7 @@
 
         </style>
     </head>
-    <body>
+<body>
 
 
 <div class="container mt-3">
@@ -31,8 +31,8 @@
 				  <th scope="col">Action</th>
 				</tr>
 			  </thead>
-			  <tbody>
-				@foreach($employees as $data)
+			  <tbody id="table_data">
+			  @foreach($employees as $data)
 				<tr>
 				    <td>{{ $loop->iteration }}</td>
 					<td>{{ $data->name }}</td>
@@ -40,14 +40,22 @@
 					<td>{{ $data->designation }}</td>
 					
 					<td><img src="{{ asset('uploads/'.$data->image) }}" alt="" width="25" /></td>
-					<td><a href="{{ route('images.edit', $data->id) }}">Edit</a></td>
+					<td><a href="{{ route('images.edit', $data->id) }}" class="btn btn-sm btn-primary">Edit</a> 
+					<form action="{{ route('images.destroy' , $data->id)}}" method="POST" class="d-inline-block">
+						<input name="_method" type="hidden" value="DELETE">
+						@csrf
+						<button onclick="return confirm('Are you sure you want to delete?');" type="submit" class="btn btn-sm btn-danger">Delete</button>
+					</form>
+
+					
+					</td>
 				</tr>
-				@endforeach				
+				@endforeach		
 			  </tbody>
 			</table>
 		</div>
 	</div>
 </div>
-        </div>
-    </body>
+
+</body>
 </html>

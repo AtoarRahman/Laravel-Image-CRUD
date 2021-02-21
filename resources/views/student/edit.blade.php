@@ -11,21 +11,24 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h5>Image CURD</h5>
+				<h5>Student Update</h5>
 				<hr/>
-				<form method="PUT" action="{{route('images.update', $editData->id)}}" enctype="multipart/form-data">
+				<form method="POST" action="{{ route('students.update', $editData->id) }}" enctype="multipart/form-data">
 					@csrf
+					@if (isset($editData))
+						@method('PUT')
+					@endif
 				  <div class="form-group">
 					<label for="name">Name</label>
-					<input type="text" name="name" placeholder="{{$editData->name}}" class="form-control">
+					<input type="text" name="name" value="{{$editData->name}}" class="form-control">
 				  </div>
 				  <div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" placeholder="{{$editData->email}}" class="form-control">
+					<input type="email" name="email" value="{{$editData->email}}" class="form-control">
 				  </div>
 				  <div class="form-group">
-					<label for="designation">Designation</label>
-					<input type="text" name="designation" placeholder="{{$editData->designation}}" class="form-control">
+					<label for="department">Department</label>
+					<input type="text" name="department" value="{{$editData->department}}" class="form-control">
 				  </div>
 				  <div class="form-group">
 					<label for="image">Image</label>
@@ -39,7 +42,7 @@
 					</div>
 				  </div>
 				  <button type="submit" class="btn btn-success btn-sm">Update</button>
-				  <a href="{{route('images.index')}}" class="btn btn-info btn-sm">Back</a>
+				  <a href="{{route('students.index')}}" class="btn btn-info btn-sm">Back</a>
 				</form>
 			</div>		
 		</div>

@@ -30,11 +30,10 @@
 
 <div class="container mt-3">
 	<div class="row">
-		<div class="col-md-12 text-center">
+		<div class="col-md-12">
 			<div class="jumbotron">
-				<h5>Image CURD</h5>
-				<a class="btn btn-info my-4" href="{{route('images.index')}}">Image List</a><br/>
-				<a class="btn btn-success" href="{{route('images.create')}}">Add Image</a>
+				<a class="btn btn-info" href="{{route('images.index')}}">Image List</a>
+				<a class="btn btn-success" href="{{route('students.index')}}">Student List</a>
 			</div>
 		</div>
 		

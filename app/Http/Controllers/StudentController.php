@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Employee;
+use App\Model\Student;
 
-class ImageController extends Controller
+class StudentController extends Controller
 {
-    /**
+    
+	/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+	
     public function index()
     {
-		$data['employees'] = Employee::all();
-        return view('employee.index', $data);
+        return view('student.index');
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +26,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('employee.create');
+        return view('student.create');
     }
 
     /**
@@ -37,10 +37,10 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        $employee = new Employee();
+        $student = new Student();
 		
-		$employee->fill($request->all());
-        $result = $employee->save();
+		$student->fill($request->all());
+        $result = $student->save();
 
 		if($request->hasfile('image')){
 			if($file = $request->file('image')){
@@ -50,18 +50,17 @@ class ImageController extends Controller
 				$file->move($folder, $filename); // Upload image
 				
 				// Insert Data to Notice Attachment Table
-				$employee->image = $filename; // Set file path in database to filePath
-				$employee->save();
+				$student->image = $filename; // Set file path in database to filePath
+				$student->save();
 			}
 
         }
 		
 		if($result){
-			return redirect()->route('images.index');
+			return redirect()->route('students.index');
 		}else{
-			return redirect()->route('images.create');
+			return redirect()->route('students.create');
 		}
-
     }
 
     /**
@@ -83,8 +82,8 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        $data['editData'] = Employee::find($id);
-        return view('employee.edit', $data);
+        $data['editData'] = Student::find($id);
+        return view('student.edit', $data);
     }
 
     /**
@@ -96,12 +95,12 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-		$employee = Employee::find($id);
-		$employee->fill($request->all());
+		$student = Student::find($id);
+		$student->fill($request->all());
 		
 		if($request->hasfile('image')){
 			// Delete Image from Folder
-			$imageFile = Employee::where('id', $id)->first();
+			$imageFile = Student::where('id', $id)->first();
 			$folder = public_path('uploads/');
 			@unlink($folder.$imageFile->image);
 			
@@ -112,17 +111,18 @@ class ImageController extends Controller
 				$file->move($folder, $filename); // Upload image
 				
 				// Insert Data to Notice Attachment Table
-				$employee->image = $filename; // Set file path in database to filePath
-				$employee->save();
+				$student->image = $filename; // Set file path in database to filePath
+				$student->save();
 			}
 
         }
-		$result = $employee->update();
+		$result = $student->update();
 		if($result){
-			return redirect()->route('images.index');
+			return redirect()->route('students.index');
 		}else{
-			return redirect()->route('images.create');
+			return redirect()->route('students.create');
 		}
+		
     }
 
     /**
@@ -133,18 +133,17 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        $employee = Employee::find($id);
+        $student = Student::find($id);
 		// Delete Image from Folder
-		$imageFile = Employee::where('id', $id)->first();
+		$imageFile = Student::where('id', $id)->first();
 		$folder = public_path('uploads/');
 		@unlink($folder.$imageFile->image);
 		
-        $result = $employee->delete();
+        $result = $student->delete();
 		if($result){
-			return redirect()->route('images.index');
+			return redirect()->route('students.index');
 		}else{
-			return redirect()->route('images.create');
+			return redirect()->route('students.create');
 		}
-
     }
 }
