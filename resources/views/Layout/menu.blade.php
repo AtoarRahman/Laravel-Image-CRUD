@@ -21,10 +21,9 @@
 
                         <li> <a href="{{url('/')}}" ><span> <i class="fas fa-home"></i> </span><span class="hide-menu">Home</span></a></li>
 
-
-                        <li> <a href="{{route('students.index')}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Student List</span></a></li>
-                        <li> <a href="{{route('images.index')}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Single-Image List</span></a></li>
-                        <li> <a href="{{route('multiImages.index')}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Multi-Image List</span></a></li>
+                        <li> <a href="{{route('students.index')}}" ><span> <i class="fa fa-user"></i> </span><span class="hide-menu">Student List</span></a></li>
+                        <li> <a href="{{route('images.index')}}" ><span> <i class="fa fa-object-group"></i> </span><span class="hide-menu">Single-Image List</span></a></li>
+                        <li> <a href="{{route('multiImages.index')}}" ><span> <i class="fa fa-newspaper"></i> </span><span class="hide-menu">Multi-Image List</span></a></li>
 
                     </ul>
                 </nav>

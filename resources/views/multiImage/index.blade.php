@@ -6,11 +6,10 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h5 class="float-left">Multi-Image List</h5>
-			<a class="btn btn-info float-right" href="{{url('/')}}">Back</a>
 			<a class="btn btn-success float-right mr-2" href="{{route('multiImages.create')}}">Add Image</a>
 		</div>
 		<div class="col-md-12">
-			<table class="table mt-3">
+			<table class="table table-striped table-bordered mt-3">
 			  <thead class="thead-dark">
 				<tr>
 				  <th width="5%">SL</th>
@@ -31,14 +30,16 @@
 					
 					<td>
 					@foreach($attachments as $file)
-						<img src="{{ asset('uploads/'.$file->attachment) }}" alt="" width="25" />
+						@if($data->id == $file->multiImage_id)
+							<img src="{{ asset('uploads/'.$file->attachment) }}" alt="" width="25" />
+						@endif	
 					@endforeach		
 					</td>
-					<td><a href="{{ route('multiImages.edit', $data->id) }}" class="btn btn-sm btn-primary">Edit</a> 
+					<td><a href="{{ route('multiImages.edit', $data->id) }}" class="btn btn-primary p-1"><i class="fas fa-edit"></i></a> 
 					<form action="{{ route('multiImages.destroy' , $data->id)}}" method="POST" class="d-inline-block">
 						<input name="_method" type="hidden" value="DELETE">
 						@csrf
-						<button onclick="return confirm('Are you sure you want to delete?');" type="submit" class="btn btn-sm btn-danger">Delete</button>
+						<button onclick="return confirm('Are you sure you want to delete?');" type="submit" class="btn btn-danger p-1"><i class="fas fa-trash"></i></button>
 					</form>
 					</td>
 				</tr>
